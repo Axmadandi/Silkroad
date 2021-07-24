@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  
+
+
+     <!-- BLOG -->
+     <section class="blog ">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-lg-12 col-12 py-5 mt-5 mb-3 text-center">
+
+                      <h1 class="mb-4" data-aos="fade-up">SILKROAD Yangiliklar</h1>
+                    </div>
+                      {% for blog in blogs %}
+                        
+                    
+                    <div class="col-md-4 col-md-4 col-12 mb-4">
+                      <div class="blog-header" data-aos="fade-up" data-aos-delay="100">
+                        <img src="{{blog.image.url}}" class="img-fluid" alt="blog header">
+
+                        <div class="blog-header">
+                         <a href="{{blog.get_absolute_url}}"><h4 class="blog-category text-info">{{blog.title}}</h4></a> 
+
+                          <h3 style="color:black;">{{blog.body|truncatewords:'7'}}</h3>
+                        </div>
+                      </div>
+                    </div>
+                  {% endfor %}
+                    
+ 
+                  </div>  
+                </div>
+
+     </section>
+
+
+ {% endblock %}

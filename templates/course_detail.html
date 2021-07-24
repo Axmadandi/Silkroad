@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  
+       <section class="project-detail section-padding-half">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-lg-9 mx-auto col-md-11 col-12 my-5 pt-3" data-aos="fade-up">
+                      <h4 class="blog-category text-info">{{blogs.title}}</h4>
+                      <h4 class="blog-category text-info">{{blogs.muddat}}</h4>
+                      
+                      <h1>{{blogs.course}}</h1>
+
+                      <div class="client-info">
+                          <p><h5 style="color:black;">Qisqacha malumot: {{blogs.body}}</h5> 
+                            </p>
+                          </div>
+                      </div>
+                    </div>
+
+               </div>
+          </div>
+     </section>
+
+
+     <div class="full-image text-center" data-aos="zoom-in">
+       <img src="{{blogs.image.url}}" style="width:65%;" class="img-fluid" alt="blog header">
+     </div><br><br>
+
+    
+
+{% endblock %}
