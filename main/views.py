@@ -6,13 +6,27 @@ from django.views.generic import (
 	View,)
 from .models import *
 
+def search(request):
+	q = request.GET.get('search', None)
+	blogs = Blog.objects.filter(title__icontains=q)
+	course = Cours.objects.filter(title__icontains=q)
+
+	query = request.GET['search']
+	context = {
+		'blogs':blogs,
+		'course':course,
+		'query':query
+	}
+	return render(request, 'searchResult.html', context)
 class HomePageView(View):
 	def get(self,request):
-		recent_add = Blog.objects.all().order_by('-id')[:3]
+		recent_add = Cours.objects.all().order_by('id')
 		teachers = Teacher.objects.all().order_by('-id')
+		blogs = Blog.objects.all().order_by('-id')[:4]
 		context = {
 			'recent_add':recent_add,
 			'teachers':teachers,
+			'blogs':blogs
 			}
 		return render(request,'index.html',context)
 
@@ -93,3 +107,15 @@ def contact(request):
 		contact.save()
 		return render(request,'contact.html')
 	return render(request,'contact.html')
+
+
+def profile(request):
+	user = request.user
+	data = user
+	context = {
+		'data':data
+	}
+	return render(request, 'account/profile.html', {'data':data})
+
+
+

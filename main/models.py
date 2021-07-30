@@ -35,9 +35,12 @@ class Contact(models.Model):
 		verbose_name_plural = 'Contactlar'
 
 
+
+
 class Blog(models.Model):
 	title = models.CharField('Title',max_length=50,unique=True)
 	slug = models.SlugField('*',max_length=50,unique=True)
+
 	category = models.ForeignKey(Category,
 		on_delete=models.CASCADE,
 		related_name='posts')
@@ -51,6 +54,10 @@ class Blog(models.Model):
 
 	def get_absolute_url(self):
 		return reverse('main:blog_detail', kwargs={'blog_slug':self.slug})
+
+
+
+
 
 class Cours(models.Model):
 	title = models.CharField('Nomi',max_length=50,)

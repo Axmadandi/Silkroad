@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    
+
+
+
+{% if blogs %}
+ <section class="blog ">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-lg-12 col-12 py-5 mt-5 mb-3 text-center">
+
+                      <h1 class="mb-4" data-aos="fade-up">So'rov bo'yicha natijalar</h1>
+                    </div>
+                   {% for blog in blogs %}
+                 <div class="vedr col-md-3 col-md-4 col-12  mb-4">
+                        <div class="blog-header" data-aos="fade-up" data-aos-delay="100">
+                          
+
+                          <div class="blog-header">
+                            <center><img src="{{blog.image.url}}" style="width:300px;height:270px;"  class="m-4" alt="blog header"></center></div>
+                           <a href="{{blog.get_absolute_url}}"><strong><h5 class="blog-category m-4 text-info">{{blog.title}} {{blog.surname}}</h5></strong></a> 
+
+                            <div class="d-flex">
+                            <h6 style="color:black;" class="m-4">{{blog.body|truncatewords:'12'}}</h6>
+                            
+                          </div>
+                        </div>
+                      </div>
+                  {% endfor %} 
+ 
+                  {% else %}
+                        <div class="jumbotron">
+                           <h3><u>{{query}}</u> so'rov uchun natijalar topilmadi !</h3>
+                        </div>  
+                  
+                  {% endif %}
+                  
+                  <br>
+                  {% for blog in course %}
+                 <div class="vedr col-md-3 col-md-4 col-12  mb-4">
+                        <div class="blog-header" data-aos="fade-up" data-aos-delay="100">
+                          
+
+                          <div class="blog-header">
+                            <center><img src="{{blog.image.url}}" style="width:300px;height:270px;"  class="m-4" alt="blog header"></center></div>
+                           <a href="{{blog.get_absolute_url}}"><strong><h5 class="blog-category m-4 text-info">{{blog.title}} {{blog.surname}}</h5></strong></a> 
+
+                            <div class="d-flex">
+                            <h6 style="color:black;" class="m-4">{{blog.body|truncatewords:'12'}}</h6>
+                            
+                          </div>
+                        </div>
+                      </div>
+                  {% endfor %}
+                                    </div>  
+                </div>
+
+     </section>
+
+   {% endblock %}

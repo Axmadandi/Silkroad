@@ -14,15 +14,18 @@
                       </div>
                         {% for blog in blogs %}
                           
-                      
-                      <div class="col-md-4 col-md-4 col-12 mb-4">
+                              
+                      <div class="vedr col-md-3 col-md-4 col-12  mb-4">
                         <div class="blog-header" data-aos="fade-up" data-aos-delay="100">
-                          <img src="{{blog.image.url}}" style="border-radius:50%;" class="img-fluid" alt="blog header">
+                          
 
                           <div class="blog-header">
-                           <a href="{{blog.get_absolute_url}}"><h4 class="blog-category text-info">{{blog.name}}</h4></a> 
+                            <center><img src="{{blog.image.url}}" style="width:250px;height:200px;border-radius:50%" class="m-4" alt="blog header"></center></div>
+                           <a href="{{blog.get_absolute_url}}"><strong><h5 class="blog-category m-4 text-info">{{blog.name}} {{blog.surname}}</h5></strong></a> 
 
-                            <h3 style="color:black;">{{blog.body|truncatewords:'10'}}</h3>
+                            <div class="d-flex">
+                            <h6 style="color:black;" class="m-4">{{blog.body|truncatewords:'12'}}</h6>
+                            
                           </div>
                         </div>
                       </div>

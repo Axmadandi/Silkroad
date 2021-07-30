@@ -14,5 +14,9 @@ urlpatterns = [
     path('blog/<slug:blog_slug>/',views.blogDetail, name='blog_detail'),
     path('category/<slug:category_slug>/', views.categoryDetail,name='category_detail'),
     path('author/<slug:author_slug>/', views.authorDetail,name='author_detail'),
+    path('accounts/profile/', views.profile, name='profile'),
+    path('search/', views.search, name='search'),
+
+    
   
 ]
